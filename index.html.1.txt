@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VAMENAR — Energy & Electronics Marketplace</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container topbar">
+      <div>
+        <span class="logo">VAMENAR</span>
+        <span class="badge" title="Multi-Brand">Multi-Brand</span>
+      </div>
+      <div class="search">
+        <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="q" placeholder="Search panels, batteries, inverters, EV…" />
+        <div id="suggest" class="suggest" style="display:none"></div>
+      </div>
+      <div style="justify-self:end;display:flex;gap:8px">
+        <button id="cartBtn" class="btn">🛒 Cart <span id="cartCount">0</span></button>
+      </div>
+    </div>
+    <div class="banner">
+      <div class="container banner-grid">
+        <div class="hero"><div class="t">Mega Solar Days</div><div class="s">Up to 25% off on Panels & Inverters</div></div>
+        <div class="tile">
+          <div>🚚 Free delivery on ₹9,999+</div>
+          <div>🏷️ Extra 10% with VAM Pay</div>
+        </div>
+      </div>
+    </div>
+    <div class="container controls">
+      <div id="categoryChips" class="chips"></div>
+      <div style="margin-left:auto;display:flex;gap:8px">
+        <select id="brandSelect"></select>
+        <select id="sortSelect">
+          <option value="popularity">Most Popular</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="rating">Top Rated</option>
+          <option value="discount">Best Discount</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main class="container layout">
+    <aside class="side">
+      <div class="card">
+        <div class="hd">Filters</div>
+        <div class="bd">
+          <div class="row">
+            <div class="label">Pincode</div>
+            <input id="pin" maxlength="6" class="input" placeholder="Enter 6-digit" />
+            <div class="hint">📍 <span id="deliveryHint">Enter pincode to check delivery</span></div>
+          </div>
+          <div class="row">
+            <div class="label">Discount</div>
+            <div class="chips">
+              <span class="pill chip" data-discount="10">10%+ off</span>
+              <span class="pill chip" data-discount="20">20%+ off</span>
+              <span class="pill chip" data-discount="30">30%+ off</span>
+              <span class="pill chip" data-discount="40">40%+ off</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="label">Rating</div>
+            <div class="chips">
+              <span class="pill chip" data-rating="4.5">4.5★+</span>
+              <span class="pill chip" data-rating="4">4★+</span>
+              <span class="pill chip" data-rating="3.5">3.5★+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <section>
+      <div id="grid" class="grid"></div>
+    </section>
+  </main>
+
+  <!-- Cart Drawer -->
+  <div id="drawer" class="drawer" aria-hidden="true">
+    <div class="head">🛍️ Your Bag</div>
+    <div id="bag" class="body"></div>
+    <div class="bd">
+      <div style="display:flex;justify-content:space-between"><span>Subtotal</span><span id="sub"></span></div>
+      <div style="display:flex;justify-content:space-between"><span>GST (18%)</span><span id="gst"></span></div>
+      <div class="tot" style="display:flex;justify-content:space-between"><span>Total</span><span id="tot"></span></div>
+      <div style="display:flex;gap:8px;margin-top:10px">
+        <button id="checkout" class="btn primary" style="flex:1">Proceed to Checkout</button>
+        <button id="clear" class="btn" style="flex:1">Clear</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container ft">
+      <div><b>About</b><br>Multi-brand renewable & electronics marketplace connecting the world to clean energy.</div>
+      <div><b>Help</b><br>Orders • Returns • Warranty • Installations • Support</div>
+      <div><b>Trust</b><br>Secure Payments • Global Shipping • Carbon-Neutral Packaging</div>
+    </div>
+    <div class="copy">© <span id="year"></span> Vamenar World — One Planet. One Energy. One Network.</div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
